@@ -1,0 +1,50 @@
+/*classes prefixed with a '.' are custom from attribute class="class-name*/
+/*no prefix is standard html*/
+/*combinators can work on both interchangably (CITATION NEEDED)*/
+
+.results {
+  display: grid;
+  column-gap: 14px;
+  row-gap: 14px;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 400px));
+  margin-top: 50px;
+  justify-content: space-around;
+}
+
+input[type='text'] {
+  border: solid 1px var(--primary-color);
+  padding: 10px;
+  border-radius: 8px;
+  margin-right: 4px;
+  display: inline-block;
+  width: 30%;
+}
+
+/*var - what is it for? First guess, variable */
+/*--primary-color - from the angular tutorial (which I built using Vite rather than their method  - now likes to styles.css as Black*/
+
+button {
+  padding: 10px;
+  border: solid 1px var(--primary-color);
+  background: var(--primary-color);
+  color: white;
+  border-radius: 8px;
+}
+
+/*Media is used for when devices have different attributes - in this case the screen width*/
+/*'Xfr' is Fractional Unit, and is for X parts of the available space */
+
+@media (min-width: 500px) and (max-width: 768px) {
+  .results {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  input[type='text'] {
+    width: 70%;
+  }
+}
+
+@media (max-width: 499px) {
+  .results {
+    grid-template-columns: 1fr;
+  }
+}
